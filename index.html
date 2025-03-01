@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Clima</title>
+    <meta name="description" content="Aplicativo de clima que fornece informações meteorológicas atualizadas.">
+    <meta name="keywords" content="clima, previsão do tempo, meteorologia, temperatura">
+    <link rel="stylesheet" href="clima.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Clima</h1>
+        <input type="text" id="cidade" placeholder="Digite o nome da cidade" aria-label="Campo para digitar o nome da cidade">
+        <button id="buscar-clima" aria-label="Botão para buscar o clima">Buscar Clima</button>
+        <div id="info-clima">
+            <h2 id="nome-cidade"></h2>
+            <img id="icon-clima" width="50" height="50" alt="Ícone do clima">
+            <p id="temperatura"></p>
+            <p id="descricao"></p>
+            <p id="umidade"></p>
+            <p id="velocidade-vento"></p>
+            <p id="direcao-vento"></p>
+        </div>
+        <!-- Adjusted section for 4-day forecast -->
+        <div id="forecast" class="forecast-container">
+            <h3>Previsão para os próximos 4 dias</h3>
+            <!-- Forecast items will be dynamically added here -->
+        </div>
+    </div>
+
+    <script src="clima.js"></script>
+</body>
+</html>
