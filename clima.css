@@ -1,0 +1,116 @@
+/* clima.css - Tema Escuro */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2f2f2f; /* Cor de fundo escura */
+    margin: 0;
+    padding: 0;
+    color: #fff; /* Cor do texto branca */
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #333; /* Cor de fundo do container escura */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
+    text-align: center;
+    width: 90%; /* Responsive width */
+}
+
+#forecast {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.forecast-item {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(25% - 20px); /* Adjust width for four items per row */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.forecast-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .forecast-item {
+        width: calc(50% - 20px); /* Adjust width for two items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-item {
+        width: 100%; /* Full width for single column layout */
+    }
+}
+
+#cidade {
+    padding: 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #444; /* Cor de fundo do campo de entrada */
+    color: #fff; /* Cor do texto branca */
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50; /* Cor do botão verde */
+    color: #fff; /* Cor do texto branca */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Full width for responsiveness */
+}
+
+button:hover {
+    background-color: #3e8e41; /* Cor do botão verde mais escuro ao passar o mouse */
+}
+
+#info-clima {
+    margin-top: 20px;
+}
+
+#nome-cidade {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#icon-clima {
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #cidade, button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    #nome-cidade {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cidade, button {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    #nome-cidade {
+        font-size: 18px;
+    }
+}
