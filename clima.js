@@ -10,6 +10,9 @@ async function getWeather() {
         }
         const data = await response.json();
 
+        // Update the browser tab title with the city name and temperature
+        document.title = `${data.name}: ${data.main.temp}°C`;
+
         const icon = data.weather[0].icon;
         const iconUrl = `https://openweathermap.org/img/wn/${icon}.png`;
 
