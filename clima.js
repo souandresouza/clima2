@@ -48,13 +48,28 @@ async function getWeather() {
         // Fetch 5-day forecast
         await getForecast(cidade, apiKey);
 
-        // Salve a cidade no localStorage
+        // Update the title with the city name and temperature
+        document.getElementById('titulo').innerText = `${data.name}: ${data.main.temp}°C`;
+
+        // Salve a cidade e temperatura no localStorage
         localStorage.setItem('ultimaCidade', cidade);
+        localStorage.setItem('ultimaTemperatura', data.main.temp);
     } catch (error) {
         console.error('Erro ao buscar clima:', error);
         alert(error.message || 'Não foi possível obter os dados climáticos. Verifique sua conexão ou tente novamente.');
     }
 }
+
+// Carregue a cidade salva ao iniciar a página
+document.addEventListener('DOMContentLoaded', function() {
+    const ultimaCidade = localStorage.getItem('ultimaCidade');
+    const ultimaTemperatura = localStorage.getItem('ultimaTemperatura');
+    if (ultimaCidade && ultimaTemperatura) {
+        document.getElementById('cidade').value = ultimaCidade;
+        document.getElementById('titulo').innerText = `${ultimaCidade}: ${ultimaTemperatura}°C`;
+        getWeather(ultimaCidade);
+    }
+});
 
 async function getForecast(cidade, apiKey) {
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cidade}&appid=${apiKey}&units=metric&lang=pt_br`;
@@ -94,15 +109,6 @@ function displayForecast(forecastData) {
         forecastContainer.appendChild(forecastItem);
     }
 }
-
-// Carregue a cidade salva ao iniciar a página
-document.addEventListener('DOMContentLoaded', function() {
-    const ultimaCidade = localStorage.getItem('ultimaCidade');
-    if (ultimaCidade) {
-        document.getElementById('cidade').value = ultimaCidade;
-        getWeather(ultimaCidade);
-    }
-});
 
 // Adicione um evento ao botão para buscar o clima
 document.getElementById('buscar-clima').addEventListener('click', getWeather);
