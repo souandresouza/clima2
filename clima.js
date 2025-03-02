@@ -48,8 +48,8 @@ async function getWeather() {
         // Fetch 5-day forecast
         await getForecast(cidade, apiKey);
 
-        // Update the title with the city name and temperature
-        document.getElementById('titulo').innerText = `${data.name}: ${data.main.temp}°C`;
+        // Update the browser tab title with the city name and temperature
+        document.title = `${data.name}: ${data.main.temp}°C`;
 
         // Salve a cidade e temperatura no localStorage
         localStorage.setItem('ultimaCidade', cidade);
